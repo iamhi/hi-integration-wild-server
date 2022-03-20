@@ -25,12 +25,6 @@
 
         <dependency>
             <groupId>com.github.iamhi.hi-integration</groupId>
-            <artifactId>wild-server-data</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.iamhi.hi-integration</groupId>
             <artifactId>wild-server-config</artifactId>
             <version>${project.version}</version>
         </dependency>
