@@ -36,7 +36,7 @@ record MessageListenerServiceImpl(
 
                 return Mono.error(new RuntimeException());
             }
-        );
+        ).switchIfEmpty(Mono.error(new RuntimeException()));
     }
 
     @Override

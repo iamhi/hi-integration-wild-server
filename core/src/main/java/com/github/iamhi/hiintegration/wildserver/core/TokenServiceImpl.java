@@ -15,7 +15,7 @@ public record TokenServiceImpl(
 
     @Override
     public Mono<String> connectWithToken(String token) {
-        return tokenRepository.hasToken(token).flatMap(result
+        return activateToken(token).flatMap(result
             -> Boolean.TRUE.equals(result)
             ? Mono.just(token)
             : Mono.error(new RuntimeException()));
