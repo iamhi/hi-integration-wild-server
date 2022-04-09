@@ -25,5 +25,4 @@ public class StatusRouter {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(Mono.just(Map.of("ping", "PONG from Connections")), Map.class));
     }
-
 }

@@ -19,7 +19,8 @@ record MessageListenerServiceImpl(
     public Mono<Boolean> handleUserInput(UserInputDTO userInput) {
         System.out.println(userInput.message());
 
-        return redisPubSubWrapper.publish("all", userInput.message()).map(result -> true);
+        return redisPubSubWrapper.publish("all",
+            userInput.token() + ":" + userInput.message()).map(result -> true);
     }
 
     @Override
