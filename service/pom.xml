@@ -31,6 +31,7 @@
     </dependencies>
 
     <build>
+        <finalName>docker-jar</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -46,4 +47,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <activation>
+                <property>
+                    <name>profile</name>
+                    <value>docker</value>
+                </property>
+            </activation>
+            <build>
+                <finalName>wild-server-service-docker</finalName>
+            </build>
+        </profile>
+    </profiles>
 </project>
