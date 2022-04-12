@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wild-server-service-depl
+  labels:
+    app: wild-server-service-depl
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wild-server-service-depl
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: wild-server-service-depl
+        tier: backend
+    spec:
+      containers:
+        - name: wild-server-service-depl
+          image: localhost:32000/wild-server-service
+          ports:
+            - name: http-server
+              containerPort: 8084
+#          env:
+#            - name: JAVA_TOOL_OPTIONS
+#              value: -agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wild-server-srv
+  labels:
+    app: wild-server-service
+    tier: backend
+spec:
+  type: ClusterIP
+  selector:
+    app: wild-server-service-depl
+    tier: backend
+  ports:
+    - port: 80
+      targetPort: http-server
