@@ -46,6 +46,6 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/hi-integration-wild-server:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/hi-integration-wild-server:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/hi-integration-wild-server:buildcache,mode=max
