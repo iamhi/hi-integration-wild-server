@@ -4,7 +4,7 @@ import reactor.core.publisher.Mono;
 
 public interface TokenService {
 
-    Mono<String> createConnectionToken();
+    Mono<String> createConnectionToken(String secret);
 
     Mono<String> connectWithToken(String token);
 }

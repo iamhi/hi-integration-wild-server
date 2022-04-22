@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: wild-server-service-depl
-          image: localhost:32000/wild-server-service
+          image: iamhi/hi-integration-wild-server:latest
           ports:
             - name: http-server
               containerPort: 8084

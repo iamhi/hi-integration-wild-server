@@ -1,15 +1,20 @@
 package com.github.iamhi.hiintegration.wildserver.core;
 
+import com.github.iamhi.hiintegration.wildserver.config.TokenConfig;
 import com.github.iamhi.hiintegration.wildserver.data.TokenRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
 public record TokenServiceImpl(
-    TokenRepository tokenRepository
+    TokenRepository tokenRepository,
+    TokenConfig tokenConfig
 ) implements TokenService {
     @Override
-    public Mono<String> createConnectionToken() {
+    public Mono<String> createConnectionToken(String secret) {
+        if (!tokenConfig.getSecret().equals(secret)) {
+            return Mono.error(new Throwable("Error creating token"));
+        }
         return tokenRepository.generateToken();
     }
 

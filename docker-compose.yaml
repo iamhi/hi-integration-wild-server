@@ -2,13 +2,5 @@ version: '3.7'
 services:
   redis:
     image: redis:alpine
-    container_name: redis-local
     ports:
       - "6379:6379"
-  wild-service:
-    image: wild-server-temp:latest
-    container_name: wild-server-local
-    ports:
-      - "8084:8084"
-    depends_on:
-      - redis

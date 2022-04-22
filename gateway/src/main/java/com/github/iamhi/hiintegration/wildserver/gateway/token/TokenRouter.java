@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
@@ -15,6 +15,6 @@ public class TokenRouter {
 
     @Bean
     public RouterFunction<ServerResponse> tokenRouterCompose(TokenHandler tokenHandler) {
-        return route(GET(ROUTER_PREFIX), tokenHandler::createToken);
+        return route(POST(ROUTER_PREFIX), tokenHandler::createToken);
     }
 }
