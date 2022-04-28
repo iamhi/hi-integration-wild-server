@@ -22,7 +22,6 @@ record MessageListenerServiceImpl(
 ) implements MessageListenerService {
 
     private static final String DEFAULT_CHANNEL = "all";
-    private static final String CHANNEL_PROPERTY = "channel";
 
     @Override
     public Mono<Boolean> handleUserInput(UserInputDTO userInput) {
