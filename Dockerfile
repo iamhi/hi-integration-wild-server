@@ -29,6 +29,8 @@ WORKDIR /app
 
 COPY --from=build /app/app.jar ./app.jar
 
+ENV VAULT_TOKEN "null"
+
 EXPOSE 8080
 
 CMD ["java", "-jar", "/app/app.jar"]
